@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -712,4 +713,720 @@ int main() {
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Fundamentals Masterclass</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #4f46e5;
+            --accent: #8b5cf6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gray);
+        }
+        
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray);
+            transition: all 0.3s;
+        }
+        
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        pre {
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .example {
+            background-color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .example h4 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .code-editor {
+            background-color: #1e293b;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        
+        .editor-header {
+            background-color: #334155;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .editor-header span {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .run-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .run-btn:hover {
+            background-color: #059669;
+        }
+        
+        #code {
+            width: 100%;
+            min-height: 200px;
+            background-color: #1e293b;
+            color: white;
+            padding: 1rem;
+            border: none;
+            font-family: 'Fira Code', monospace;
+            resize: vertical;
+        }
+        
+        .output {
+            background-color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0 0 8px 8px;
+            min-height: 100px;
+            font-family: 'Fira Code', monospace;
+            white-space: pre-wrap;
+        }
+        
+        .note {
+            background-color: #dbeafe;
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tip {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning {
+            background-color: #fef3c7;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                text-align: left;
+                border-bottom: 1px solid #e2e8f0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programming Fundamentals Masterclass</h1>
+        <p>Learn C Programming and Web Development from the ground up</p>
+    </header>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="c-basics">C Basics</button>
+            <button class="tab-btn" data-tab="web-basics">Web Basics</button>
+            <button class="tab-btn" data-tab="practice">Practice</button>
+        </div>
+        
+        <div id="c-basics" class="tab-content active">
+            <h2>C Programming Fundamentals</h2>
+            <p>C is a powerful general-purpose programming language that is excellent for beginners to learn because it helps you understand how computers work at a fundamental level.</p>
+            
+            <h3>1. Variables and Data Types</h3>
+            <p>Variables are containers for storing data values. In C, each variable must have a specific type, which determines the size and layout of the variable's memory.</p>
+            
+            <div class="example">
+                <h4>Basic Data Types in C:</h4>
+                <ul>
+                    <li><strong>int</strong> - integers (whole numbers)</li>
+                    <li><strong>float</strong> - floating-point numbers (decimals)</li>
+                    <li><strong>double</strong> - double-precision floating-point numbers</li>
+                    <li><strong>char</strong> - single characters</li>
+                </ul>
+            </div>
+            
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    // Variable declaration and initialization
+    int age = 25;
+    float height = 5.9;
+    double salary = 50000.50;
+    char grade = 'A';
+    
+    // Printing variables
+    printf("Age: %d\n", age);
+    printf("Height: %.2f\n", height);
+    printf("Salary: %.2f\n", salary);
+    printf("Grade: %c\n", grade);
+    
+    return 0;
+}</code></pre>
+            
+            <h3>2. Operators</h3>
+            <p>Operators are symbols that tell the compiler to perform specific mathematical or logical operations.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Arithmetic Operators</h3>
+                    <p>+ (addition), - (subtraction), * (multiplication), / (division), % (modulus)</p>
+                </div>
+                <div class="card">
+                    <h3>Relational Operators</h3>
+                    <p>== (equal), != (not equal), > (greater than), < (less than), >= (greater or equal), <= (less or equal)</p>
+                </div>
+                <div class="card">
+                    <h3>Logical Operators</h3>
+                    <p>&& (AND), || (OR), ! (NOT)</p>
+                </div>
+            </div>
+            
+            <h3>3. Control Structures: If-Else and Loops</h3>
+            <p>Control structures allow you to control the flow of execution of your program.</p>
+            
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int number = 10;
+    
+    // If-else statement
+    if (number > 0) {
+        printf("The number is positive.\n");
+    } else if (number < 0) {
+        printf("The number is negative.\n");
+    } else {
+        printf("The number is zero.\n");
+    }
+    
+    // For loop
+    printf("For loop: ");
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+    
+    // While loop
+    printf("While loop: ");
+    int j = 5;
+    while (j > 0) {
+        printf("%d ", j);
+        j--;
+    }
+    printf("\n");
+    
+    return 0;
+}</code></pre>
+            
+            <h3>4. Functions and Recursion</h3>
+            <p>Functions are blocks of code that perform a specific task. Recursion is a technique where a function calls itself.</p>
+            
+            <pre><code>#include &lt;stdio.h&gt;
+
+// Function declaration
+int add(int a, int b);
+int factorial(int n);
+
+int main() {
+    int result = add(5, 3);
+    printf("5 + 3 = %d\n", result);
+    
+    // Recursion example
+    int fact = factorial(5);
+    printf("Factorial of 5 is %d\n", fact);
+    
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;
+}
+
+// Recursive function to calculate factorial
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}</code></pre>
+            
+            <h3>5. Arrays and Strings</h3>
+            <p>Arrays are used to store multiple values in a single variable. Strings are arrays of characters.</p>
+            
+            <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    // Arrays
+    int numbers[5] = {1, 2, 3, 4, 5};
+    printf("Third element: %d\n", numbers[2]);
+    
+    // Strings
+    char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+    char name[] = "Alice";
+    
+    printf("Greeting: %s\n", greeting);
+    printf("Name: %s\n", name);
+    printf("Length of name: %lu\n", strlen(name));
+    
+    return 0;
+}</code></pre>
+        </div>
+        
+        <div id="web-basics" class="tab-content">
+            <h2>Web Development Basics</h2>
+            <p>Web development involves creating websites and web applications. The core technologies are HTML, CSS, and JavaScript.</p>
+            
+            <h3>1. HTML: Structure, Forms, Tables</h3>
+            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages.</p>
+            
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+    
+    &lt;!-- Form example --&gt;
+    &lt;form&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;
+        
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;
+        
+        &lt;input type="submit" value="Submit"&gt;
+    &lt;/form&gt;
+    
+    &lt;!-- Table example --&gt;
+    &lt;table border="1"&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Name&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Alice&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            
+            <h3>2. CSS: Colors, Fonts, Flexbox</h3>
+            <p>CSS (Cascading Style Sheets) is used to style and layout web pages.</p>
+            
+            <pre><code>/* CSS example */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Flexbox example */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 0.5rem;
+    flex: 1 0 200px;
+}
+
+.button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #005f73;
+}</code></pre>
+            
+            <h3>3. JavaScript: Variables, Loops, Functions</h3>
+            <p>JavaScript is a programming language that makes web pages interactive.</p>
+            
+            <pre><code>// JavaScript example
+
+// Variables (let, const, var)
+let message = "Hello, World!";
+const pi = 3.14159;
+var count = 0;
+
+// Data types
+let name = "Alice"; // String
+let age = 25; // Number
+let isStudent = true; // Boolean
+let scores = [95, 89, 72]; // Array
+let person = { // Object
+    firstName: "John",
+    lastName: "Doe",
+    age: 30
+};
+
+// Functions
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// Loops
+console.log("For loop:");
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+console.log("While loop:");
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+
+// Event handling
+document.getElementById("myButton").addEventListener("click", function() {
+    alert("Button clicked!");
+});</code></pre>
+        </div>
+        
+        <div id="practice" class="tab-content">
+            <h2>Practice Your Skills</h2>
+            <p>Try out these code examples and modify them to test your understanding.</p>
+            
+            <h3>C Practice</h3>
+            <div class="code-editor">
+                <div class="editor-header">
+                    <span>C Code Editor</span>
+                    <button class="run-btn" onclick="runCcode()">Run</button>
+                </div>
+                <textarea id="c-code" class="code-input">#include &lt;stdio.h&gt;
+
+int main() {
+    // Try modifying this code
+    int number = 5;
+    
+    printf("Multiplication table for %d:\n", number);
+    for (int i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", number, i, number * i);
+    }
+    
+    return 0;
+}</textarea>
+                <div id="c-output" class="output">Output will appear here...</div>
+            </div>
+            
+            <h3>Web Practice</h3>
+            <div class="code-editor">
+                <div class="editor-header">
+                    <span>HTML/CSS/JS Editor</span>
+                    <button class="run-btn" onclick="runWebcode()">Run</button>
+                </div>
+                <textarea id="web-code" class="code-input">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px dashed #333;
+            min-height: 50px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Web Practice&lt;/h1&gt;
+        &lt;button onclick="showMessage()"&gt;Click Me!&lt;/button&gt;
+        &lt;button onclick="clearOutput()"&gt;Clear&lt;/button&gt;
+        &lt;div id="output"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script&gt;
+        function showMessage() {
+            const output = document.getElementById('output');
+            output.innerHTML = '&lt;h3&gt;Hello from JavaScript!&lt;/h3&gt;&lt;p&gt;You clicked the button.&lt;/p&gt;';
+        }
+        
+        function clearOutput() {
+            document.getElementById('output').innerHTML = '';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                <div id="web-output" class="output">Output will appear here...</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Programming Fundamentals Masterclass &copy; 2023</p>
+        <p>Designed to help you learn C and Web Development basics</p>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Function to run C code
+        function runCcode() {
+            const code = document.getElementById('c-code').value;
+            const outputElement = document.getElementById('c-output');
+            
+            // This is a simplified simulation - in a real environment, 
+            // you would need a C compiler on the server side
+            outputElement.textContent = "Running C code... (This is a simulation)";
+            
+            // Simulate output based on common code patterns
+            if (code.includes('printf') && code.includes('Multiplication table')) {
+                outputElement.textContent = "Multiplication table for 5:\n5 x 1 = 5\n5 x 2 = 10\n5 x 3 = 15\n5 x 4 = 20\n5 x 5 = 25\n5 x 6 = 30\n5 x 7 = 35\n5 x 8 = 40\n5 x 9 = 45\n5 x 10 = 50";
+            } else if (code.includes('for') && code.includes('i++')) {
+                outputElement.textContent = "0\n1\n2\n3\n4";
+            } else {
+                outputElement.textContent = "Code executed successfully. (Simulated output)";
+            }
+        }
+        
+        // Function to run web code
+        function runWebcode() {
+            const code = document.getElementById('web-code').value;
+            const outputElement = document.getElementById('web-output');
+            
+            // Create a sandboxed iframe to run the web code
+            outputElement.innerHTML = '<iframe style="width: 100%; height: 300px; border: none;"></iframe>';
+            const iframe = outputElement.querySelector('iframe');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            iframeDoc.open();
+            iframeDoc.write(code);
+            iframeDoc.close();
+        }
+    </script>
+</body>
+>>>>>>> a12006fcefee268105da9ed0026d7e902fe4c265
 </html>
