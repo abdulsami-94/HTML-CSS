@@ -1,9 +1,11 @@
-/* ---------------- GLOBAL RESET + TRANSITION ---------------- */
+/*  GLOBAL RESET + TRANSITION  */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s ease-in-out; /* Global smooth animation */
+    transition: all 0.3s ease-in-out; 
+    
+    /* Global smooth animation */
 }
 
 body {
@@ -11,7 +13,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ---------------- INPUTS & BUTTONS ---------------- */
+/*  INPUTS & BUTTONS  */
 input {
     padding: 5px;
     border: 0.5px solid #aaa;
@@ -32,7 +34,7 @@ button:hover {
     background-color: #555;
 }
 
-/* ---------------- HEADINGS ---------------- */
+/*  HEADINGS  */
 h3 {
     color: #333;
 }
@@ -41,7 +43,7 @@ h3 {
     text-align: center;
 }
 
-/* ---------------- NAV ---------------- */
+/*  NAV  */
 nav {
     padding: 10px;
     display: flex;
@@ -73,7 +75,7 @@ nav a:hover {
     justify-content: left;
 }
 
-/* ---------------- DAYS ---------------- */
+/*  DAYS  */
 .day {
     width: 100%;
     margin: 0;
@@ -89,7 +91,7 @@ nav a:hover {
     text-align: center;
 }
 
-/* ---------------- TABLE ---------------- */
+/*  TABLE  */
 table {
     border-collapse: collapse;
     width: 80%;
@@ -104,9 +106,10 @@ th, td {
 
 ol {
     list-style-type: upper-roman;
+    padding: 20px;
 }
 
-/* ---------------- FOOTER ---------------- */
+/*  FOOTER  */
 .footer {
     text-align: center;
     background-color: #333;
@@ -126,7 +129,7 @@ footer .copy {
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* ---------------- GALLERY ---------------- */
+/*  GALLERY  */
 .gallery-container {
     display: flex;
     justify-content: space-around;
@@ -144,7 +147,7 @@ footer .copy {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* ---------------- FACULTY ---------------- */
+/*  FACULTY  */
 .faculty-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -166,7 +169,7 @@ footer .copy {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* ---------------- RESPONSIVE NAV ---------------- */
+/*  RESPONSIVE NAV  */
 #main-nav {
     display: flex;
     justify-content: center;
@@ -188,7 +191,7 @@ footer .copy {
     }
 }
 
-/* ---------------- HERO ---------------- */
+/*  HERO  */
 .hero {
     background: linear-gradient(135deg, #4facfe, #00f2fe);
     color: white;
@@ -198,7 +201,7 @@ footer .copy {
     margin-bottom: 40px;
 }
 
-/* ---------------- GENERAL SECTIONS ---------------- */
+/*  GENERAL SECTIONS  */
 section {
     margin: 40px 0;
     padding: 40px 20px;
